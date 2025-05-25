@@ -18,7 +18,13 @@
     </style>
 </head>
 <body>
+    <form method="POST" action="{{ route('taskManagement.History') }}"></form>
     <h1>History</h1>
+
+<form method="POST" action="{{ route('history.store') }}">
+    @csrf
+    <label for="action">need pa crud and e connect diri every activity</label>
+</form>
 
     <table>
         <thead>
@@ -30,15 +36,18 @@
             </tr>
         </thead>
         <tbody>
+            @forelse ($items as $item)
                 <tr>
-                    <td>$loop->iteration </td>
-                    <td>$item->action </td>
-                    <td>$item->user->name ?? 'N/A' </td>
-                    <td>$item->created_at->format('Y-m-d H:i') </td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->action }}</td>
+                    <td>{{ $item->user->name ?? 'N/A' }}</td>
+                    <td>{{ $item->created_at->format('Y-m-d H:i') }}</td>
                 </tr>
+            @empty
                 <tr>
                     <td colspan="4">No history found.</td>
                 </tr>
+            @endforelse
         </tbody>
     </table>
 </body>

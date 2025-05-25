@@ -17,7 +17,11 @@ Route::get('/members/search', [MemberController::class, 'search']);
 
 use App\Http\Controllers\HistoryController;
 
-Route::get('/taskManagement/History', [HistoryController::class, 'showhistory'])->name('taskManagement.History.form');
-Route::post('/taskManagement/History', [HistoryController::class, 'History'])->name('taskManagement.History');
+Route::get('/taskManagement/History', [HistoryController::class, 'index'])->name('taskManagement.History.form');
+Route::post('/taskManagement/History', [HistoryController::class, 'store'])->name('taskManagement.History');
+Route::post('/history', [HistoryController::class, 'store'])->name('history.store');
+
+
+
 
 
