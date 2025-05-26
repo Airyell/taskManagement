@@ -21,6 +21,12 @@ Route::get('/taskManagement/History', [HistoryController::class, 'index'])->name
 Route::post('/taskManagement/History', [HistoryController::class, 'store'])->name('taskManagement.History');
 Route::post('/history', [HistoryController::class, 'store'])->name('history.store');
 
+use App\Http\Controllers\ArchiveController;
+
+Route::get('/taskManagement/Archive', [ArchiveController::class, 'index'])->name('taskManagement.Archive');
+Route::post('/taskManagement/Archive', [ArchiveController::class, 'archive']);
+
+
 
 
 
